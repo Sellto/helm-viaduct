@@ -22,7 +22,7 @@ spec:
       containers:
         - name: multitelaudio
           image: "{{ .Values.multitelaudio.image.repository }}:{{ .Values.multitelaudio.image.tag }}"
-          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          imagePullPolicy: {{ .Values.multitelaudio.image.pullPolicy }}
           env:
             - name: MQTT_IP
               value: {{ .Values.mqtt.ip }}

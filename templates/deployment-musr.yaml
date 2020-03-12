@@ -22,7 +22,7 @@ spec:
       containers:
         - name: multitelspeakerrecognition
           image: "{{ .Values.multitelspeakerrecognition.image.repository }}:{{ .Values.multitelspeakerrecognition.image.tag }}"
-          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          imagePullPolicy: {{ .Values.multitelspeakerrecognition.image.pullPolicy }}
           env:
             - name: MQTT_IP
               value: {{ .Values.mqtt.ip }}
