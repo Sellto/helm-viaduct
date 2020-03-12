@@ -12,12 +12,6 @@ multitelaudio:
     tag: v1.0.2
     pullPolicy: IfNotPresent
 
-multitelspeakerrecognition:
-  replicaCount: 1
-  image:
-    repository: selltom/multitel-speaker-recognition
-    tag: v1.0.1
-    pullPolicy: IfNotPresent
 
 nameOverride: ""
 fullnameOverride: ""
