@@ -1,14 +1,14 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: multitel-speaker-recognition
+  name: multitelspeakerrecognition
   labels:
     app.kubernetes.io/name: {{ include "viaduct.name" . }}
     helm.sh/chart: {{ include "viaduct.chart" . }}
     app.kubernetes.io/instance: {{ .Release.Name }}
     app.kubernetes.io/managed-by: {{ .Release.Service }}
 spec:
-  replicas: {{ .Values.multitel-speaker-recognition.replicaCount }}
+  replicas: {{ .Values.multitelspeakerrecognition.replicaCount }}
   selector:
     matchLabels:
       app.kubernetes.io/name: {{ include "viaduct.name" . }}
@@ -20,8 +20,8 @@ spec:
         app.kubernetes.io/instance: {{ .Release.Name }}
     spec:
       containers:
-        - name: multitel-speaker-recognition
-          image: "{{ .Values.multitel-speaker-recognition.image.repository }}:{{ .Values.multitel-speaker-recognition.image.tag }}"
+        - name: multitelspeakerrecognition
+          image: "{{ .Values.multitelspeakerrecognition.image.repository }}:{{ .Values.multitelspeakerrecognition.image.tag }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           env:
             - name: MQTT_IP

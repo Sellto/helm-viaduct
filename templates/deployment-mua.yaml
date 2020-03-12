@@ -1,14 +1,14 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: multitel-audio
+  name: multitelaudio
   labels:
     app.kubernetes.io/name: {{ include "viaduct.name" . }}
     helm.sh/chart: {{ include "viaduct.chart" . }}
     app.kubernetes.io/instance: {{ .Release.Name }}
     app.kubernetes.io/managed-by: {{ .Release.Service }}
 spec:
-  replicas: {{ .Values.multitel-audio.replicaCount }}
+  replicas: {{ .Values.multitelaudio.replicaCount }}
   selector:
     matchLabels:
       app.kubernetes.io/name: {{ include "viaduct.name" . }}
@@ -20,8 +20,8 @@ spec:
         app.kubernetes.io/instance: {{ .Release.Name }}
     spec:
       containers:
-        - name: multitel-audio
-          image: "{{ .Values.multitel-audio.image.repository }}:{{ .Values.multitel-audio.image.tag }}"
+        - name: multitelaudio
+          image: "{{ .Values.multitelaudio.image.repository }}:{{ .Values.multitelaudio.image.tag }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           env:
             - name: MQTT_IP

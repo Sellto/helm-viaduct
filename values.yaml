@@ -5,14 +5,14 @@ mqtt:
   ip: mqtt.default.svc.cluster.local
   port: 1883
 
-multitel-audio:
+multitelaudio:
   replicaCount: 1
   image:
     repository: selltom/multitel-audio
     tag: v1.0.2
     pullPolicy: IfNotPresent
 
-multitel-speaker-recognition:
+multitelspeakerrecognition:
   replicaCount: 1
   image:
     repository: selltom/multitel-speaker-recognition
