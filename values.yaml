@@ -2,8 +2,8 @@
 # Declare variables to be passed into your templates.
 
 mqtt:
-  ip: mqtt.default.svc.cluster.local
-  port: 1883
+  ip: "mqtt.default.svc.cluster.local"
+  port: "1883"
 
 multitelaudio:
   replicaCount: 1
