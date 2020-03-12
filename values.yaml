@@ -1,0 +1,23 @@
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+mqtt:
+  ip: mqtt.default.svc.cluster.local
+  port: 1883
+
+multitel-audio:
+  replicaCount: 1
+  image:
+    repository: selltom/multitel-audio
+    tag: v1.0.2
+    pullPolicy: IfNotPresent
+
+multitel-speaker-recognition:
+  replicaCount: 1
+  image:
+    repository: selltom/multitel-speaker-recognition
+    tag: v1.0.1
+    pullPolicy: IfNotPresent
+
+nameOverride: ""
+fullnameOverride: ""

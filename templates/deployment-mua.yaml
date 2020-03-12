@@ -1,0 +1,44 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: multitel-audio
+  labels:
+    app.kubernetes.io/name: {{ include "viaduct.name" . }}
+    helm.sh/chart: {{ include "viaduct.chart" . }}
+    app.kubernetes.io/instance: {{ .Release.Name }}
+    app.kubernetes.io/managed-by: {{ .Release.Service }}
+spec:
+  replicas: {{ .Values.multitel-audio.replicaCount }}
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: {{ include "viaduct.name" . }}
+      app.kubernetes.io/instance: {{ .Release.Name }}
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/name: {{ include "viaduct.name" . }}
+        app.kubernetes.io/instance: {{ .Release.Name }}
+    spec:
+      containers:
+        - name: multitel-audio
+          image: "{{ .Values.multitel-audio.image.repository }}:{{ .Values.multitel-audio.image.tag }}"
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          env:
+            - name: MQTT_IP
+              value: {{ .Values.mqtt.ip }}
+            - name: MQTT_PORT
+              value: {{ .Values.mqtt.port }}
+          resources:
+            {{- toYaml .Values.resources | nindent 12 }}
+      {{- with .Values.nodeSelector }}
+      nodeSelector:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+    {{- with .Values.affinity }}
+      affinity:
+        {{- toYaml . | nindent 8 }}
+    {{- end }}
+    {{- with .Values.tolerations }}
+      tolerations:
+        {{- toYaml . | nindent 8 }}
+    {{- end }}

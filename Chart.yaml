@@ -1,0 +1,16 @@
+---
+apiVersion: "v2"
+name: viaduct
+appVersion: "0.0.1"
+version: 0.0.1
+description: viaduct Deployment
+home: https://www.cetic.be
+icon: https://www.cetic.be/local/cache-vignettes/L200xH66/arton3464-35f3c.png?1570473680
+keywords:
+  - Vehicule
+source:
+  - https://github.com/sellto/helm-viaduct
+maintainers:
+  - name: sellto
+    email: tom.selleslagh@cetic.be
+    url: https://github.com/sellto
